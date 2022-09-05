@@ -1,0 +1,16 @@
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\bin\Debug\AdminTool.exe.config
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\bin\Debug\AdminTool.exe
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\bin\Debug\AdminTool.pdb
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.csproj.AssemblyReference.cache
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.csproj.SuggestedBindingRedirects.cache
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\MainWindow.g.cs
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\App.g.cs
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool_MarkupCompile.cache
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool_MarkupCompile.lref
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\MainWindow.baml
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.g.resources
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.Properties.Resources.resources
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.csproj.GenerateResource.cache
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.csproj.CoreCompileInputs.cache
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.exe
+C:\Users\alec\source\repos\QuestionSystem\AdminTool\obj\Debug\AdminTool.pdb

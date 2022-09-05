@@ -1,0 +1,118 @@
+﻿<Window x:Class="AdminTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdminTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel LastChildFill="True">
+        <WrapPanel DockPanel.Dock="Top">
+            <Button Content="Button 1" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 2" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 3" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 4" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 5" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 6" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 7" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 8" Margin="2" Padding="5,0,5,0"></Button>
+        </WrapPanel>
+        <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Right">
+            <Button Content="Button 1" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 2" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 3" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 4" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 5" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 6" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 7" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button 8" Margin="2" Padding="5,0,5,0"></Button>
+        </WrapPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Ok" Margin="2" Padding="15,5"></Button>
+            <Button Content="Cancel" Margin="2" Padding="15,5"></Button>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+            <Button Content="Button X 1" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 2" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 3" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 4" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 5" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 6" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 7" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 8" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 9" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 10" Margin="2" Padding="5,0,5,0"></Button>
+            <Button Content="Button X 11" Margin="2" Padding="5,0,5,0"></Button>
+        </StackPanel>
+
+        <Grid ShowGridLines="False" UseLayoutRounding="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="200"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="200"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Column="0" Grid.Row="0" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" Text="1"></TextBox>
+            <TextBox Grid.Column="2" Grid.Row="0" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" Text="2"></TextBox>
+            <TextBox Grid.Column="0" Grid.Row="1" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" Text="3"></TextBox>
+            <TextBox Grid.Column="2" Grid.Row="1" Margin="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="50" Text="4"></TextBox>
+
+            <GridSplitter DragIncrement="50" ShowsPreview="False" Width="3" Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Center"></GridSplitter>
+        </Grid>
+
+        <UniformGrid Rows="8" Columns="6">
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Green" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+            <Button Background="Red" Margin="2"></Button>
+        </UniformGrid>
+    </DockPanel>
+</Window>
