@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:PZ10"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="ProductListView">
+            <StackPanel>
+                <TextBlock>
+                    <Run FontWeight="Bold" Text="{Binding Path=Name}"></Run>
+                    <Run Text="{Binding Path=Price}"></Run>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
     </Application.Resources>
 </Application>

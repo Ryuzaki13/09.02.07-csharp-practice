@@ -20,7 +20,7 @@
             <Button Content="Create" Click="Button_Click_2"></Button>
         </StackPanel>
 
-        <ListBox Grid.Column="1" ItemsSource="{Binding products}" Name="ProductList"></ListBox>
+        <ListBox Grid.Column="1" ItemTemplate="{StaticResource ResourceKey=ProductListView}" ItemsSource="{Binding products}" Name="ProductList"></ListBox>
 
         <StackPanel Orientation="Vertical" Name="ProductPanel" Grid.Column="2" DataContext="{Binding ElementName=ProductList, Path=SelectedItem}">
             <TextBox Text="{Binding Path=Id}" IsReadOnly="True"></TextBox>

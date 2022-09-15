@@ -8,7 +8,7 @@ using NpgsqlTypes;
 
 namespace PZ10.AppData
 {
-	internal class Connection
+	public class Connection
 	{
 		private static NpgsqlConnection connection;
 	
