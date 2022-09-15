@@ -6,4 +6,4 @@
 *.pdb
 */bin/Debug
 */obj/Debug
-*/.vs/*
+/.vs/
