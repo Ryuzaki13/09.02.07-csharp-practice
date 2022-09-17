@@ -12,11 +12,11 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="24"/>
-                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="64"/>
+                                <RowDefinition Height="64"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="128"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PZ9"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        FontSize="32"
+        Title="MainWindow" Height="600" Width="1200">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -25,6 +26,10 @@
             <TextBox Text="{Binding Patronymic, UpdateSourceTrigger=PropertyChanged}"></TextBox>
             <Label>Должность</Label>
             <ComboBox Name="PostionList" SelectedItem="{Binding Position, UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+
+            <Label>Имя новой должности</Label>
+            <TextBox Name="textBoxNewPosition"></TextBox>
+            <Button Click="Button_Click_1" Content="Создать"></Button>
         </StackPanel>
 
         <StackPanel Name="NewEmployeePanel" Grid.Column="2" DataContext="{Binding NewEmployee}">
