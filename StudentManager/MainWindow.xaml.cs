@@ -14,64 +14,40 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Npgsql;
+using StudentManager.AppData;
 
-namespace StudentManager
-{
-	public partial class MainWindow : Window
-	{
-		public static NpgsqlConnection Connection;
-
+namespace StudentManager {
+	public partial class MainWindow : Window {
 		public Specialty NewSpecialty { get; set; }
 		public ObservableCollection<Specialty> Specialties { get; set; }
 
-		public MainWindow()
-		{
+		public MainWindow() {
 			InitializeComponent();
-
-			DataContext = this;
-
-			Connect("10.14.206.27", "5432", "postgres", "*sJ#44dm", "test02");
 
 			NewSpecialty = new Specialty();
 			Specialties = new ObservableCollection<Specialty>();
 
+			Database.Connect(new Configuration("setting.json"));
 			LoadSpecialties();
+
+			DataContext = this;
 		}
 
-		private void Connect(string host, string port,
-			string user, string pass, string database)
-		{
-			string cs = string.Format(
-				"Server={0};Port={1};User Id={2};Password={3};Database={4}",
-				host, port, user, pass, database);
-
-			Connection = new NpgsqlConnection(cs);
-			Connection.Open();
+		private void LoadSpecialties() { 
+			Specialty.GetList(Specialties);
 		}
 
-		private void LoadSpecialties()
-		{
-			Specialties.Clear();
-			var list = Specialty.Get();
-			foreach (var item in list)
-			{
-				Specialties.Add(item);
-			}
-		}
-
-		private void CreateSpecialtyClick(object sender, RoutedEventArgs e)
-		{
-			try
-			{
-				if (!NewSpecialty.Create()) return;
+		private void CreateSpecialtyClick(object sender, RoutedEventArgs e) {
+			try {
+				if (!NewSpecialty.Create())
+					return;
 
 				LoadSpecialties();
 
 				NewSpecialty = new Specialty();
 				SpecialtyPanel.GetBindingExpression(DataContextProperty)?.UpdateTarget();
 			}
-			catch (Exception error)
-			{
+			catch (Exception error) {
 				MessageBox.Show(error.Message);
 			}
 		}

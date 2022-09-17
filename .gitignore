@@ -6,4 +6,10 @@
 *.pdb
 */bin/Debug
 */obj/Debug
+*/bin/Release
+*/obj/Release
 /.vs/
+/PZ9/obj/Release
+/PZ4/obj/Release
+/PZ3/obj/Release
+/packages
