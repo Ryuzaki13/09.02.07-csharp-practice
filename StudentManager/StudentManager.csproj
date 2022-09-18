@@ -105,6 +105,7 @@
     </ApplicationDefinition>
     <Compile Include="AppData\Configuration.cs" />
     <Compile Include="AppData\Database.cs" />
+    <Compile Include="Group.cs" />
     <Compile Include="Specialty.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
