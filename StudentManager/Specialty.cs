@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using Npgsql;
 using NpgsqlTypes;
 using StudentManager.AppData;
 
@@ -19,12 +18,27 @@ namespace StudentManager {
 		public string Caption { get; set; }
 		public string Qualification { get; set; }
 
+		public bool Validate() {
+			if (Code == null || Caption == null || Qualification == null) {
+				return false;
+			}
+
+			Code = Code.Trim();
+			Caption = Caption.Trim();
+			Qualification = Qualification.Trim();
+
+			return Code.Length > 4 && Caption.Length > 4 && Qualification.Length > 4;
+		}
+
 		public bool Create() {
+			if (!Validate()) return false;
+
 			var command = Database.GetCommand("INSERT INTO specialty (code, caption, qualification) VALUES (@a, @b, @c)");
 			command.Parameters.AddWithValue("@a", NpgsqlDbType.Varchar, Code.Trim());
 			command.Parameters.AddWithValue("@b", NpgsqlDbType.Varchar, Caption.Trim());
 			command.Parameters.AddWithValue("@c", NpgsqlDbType.Varchar, Qualification.Trim());
 			var result = command.ExecuteNonQuery();
+
 			return result == 1;
 		}
 

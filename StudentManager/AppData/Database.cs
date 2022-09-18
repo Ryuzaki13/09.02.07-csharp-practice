@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
+using NpgsqlTypes;
 
 namespace StudentManager.AppData {
 	public class Database {
@@ -38,6 +39,6 @@ namespace StudentManager.AppData {
 			command.Connection = Connection;
 			command.CommandText = sql;
 			return command;
-		}
+		} 
 	}
 }

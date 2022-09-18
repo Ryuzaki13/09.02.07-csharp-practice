@@ -4,7 +4,25 @@
              xmlns:local="clr-namespace:StudentManager"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Height" Value="26"></Setter>
+            <Setter Property="Margin" Value="-5 0 0 0"></Setter>
+            <Setter Property="FontStyle" Value="Italic"></Setter>
+        </Style>
+        
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Height" Value="24"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="24"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+
         <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Height" Value="24"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>

@@ -29,16 +29,22 @@ namespace StudentManager {
 
 			Database.Connect(new Configuration("setting.json"));
 			LoadSpecialties();
+			// загрузка групп...
+			// загрузка студентов...
 
 			DataContext = this;
 		}
 
-		private void LoadSpecialties() { 
+		private void LoadSpecialties() {
 			Specialty.GetList(Specialties);
 		}
 
 		private void CreateSpecialtyClick(object sender, RoutedEventArgs e) {
 			try {
+				if (!NewSpecialty.Validate()) {
+					MessageBox.Show("Не все поля корректно заполненны");
+					return;
+				}
 				if (!NewSpecialty.Create())
 					return;
 
@@ -50,6 +56,11 @@ namespace StudentManager {
 			catch (Exception error) {
 				MessageBox.Show(error.Message);
 			}
+		}
+
+		private void CreateGroupClick(object sender, RoutedEventArgs e) {
+		}
+		private void CreateStudentClick(object sender, RoutedEventArgs e) {
 		}
 	}
 }
