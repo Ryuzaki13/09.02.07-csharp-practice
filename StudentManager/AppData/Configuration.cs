@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 namespace StudentManager.AppData {
 	public class Configuration {
 		private string filename = "./app.json";
+
 		public string Host { get; set; }
 		public string Port { get; set; }
 		public string User { get; set; }
@@ -42,8 +43,6 @@ namespace StudentManager.AppData {
 						Default();
 						Save();
 					}
-
-
 				} else {
 					Default();
 					Save();
@@ -57,10 +56,10 @@ namespace StudentManager.AppData {
 		}
 
 		public void Default() {
-			Host = "127.0.0.1";
+			Host = "10.14.206.27";
 			Port = "5432";
 			User = "postgres";
-			Pass = "1234";
+			Pass = "*sJ#44dm";
 			Base = "student_manager";
 		}
 
@@ -70,7 +69,7 @@ namespace StudentManager.AppData {
 				byte[] bytes = Encoding.Default.GetBytes(jsonObject);
 
 				FileStream file = File.OpenWrite(filename);
-				file.Write(Encoding.Default.GetBytes(jsonObject), 0, bytes.Length);
+				file.Write(bytes, 0, bytes.Length);
 				file.Close();
 			}
 			catch (Exception e) {

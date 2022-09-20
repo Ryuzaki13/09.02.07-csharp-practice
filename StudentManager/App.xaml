@@ -5,24 +5,33 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <local:BrushColorConverter x:Key="BConverter"></local:BrushColorConverter>
+        
         <SolidColorBrush x:Key="TextColor" Color="#0b869d"></SolidColorBrush>
         <SolidColorBrush x:Key="BackroundTextColor" Color="#666"></SolidColorBrush>
 
         <Style TargetType="{x:Type GroupBox}">
-            <Setter Property="Foreground" Value="{StaticResource TextColor}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource TextColor}"></Setter>
         </Style>
+
         <Style TargetType="{x:Type Label}">
             <Setter Property="Height" Value="34"></Setter>
             <Setter Property="Margin" Value="-5 0 0 0"></Setter>
             <Setter Property="FontStyle" Value="Italic"></Setter>
-            <Setter Property="Foreground" Value="{StaticResource TextColor}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource TextColor}"></Setter>
         </Style>
 
         <Style TargetType="{x:Type TextBox}">
             <Setter Property="Height" Value="32"></Setter>
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-            <Setter Property="BorderBrush" Value="{StaticResource TextColor}"></Setter>
-            <Setter Property="Foreground" Value="{StaticResource TextColor}"></Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource TextColor}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource TextColor}"></Setter>
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}">
+            <Setter Property="Height" Value="32"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="{DynamicResource TextColor}"></Setter>
+            <Setter Property="Foreground" Value="{DynamicResource TextColor}"></Setter>
         </Style>
 
         <Style TargetType="{x:Type Button}">
@@ -30,30 +39,35 @@
             <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Foreground" Value="#ffffff"></Setter>
-            <Setter Property="Background" Value="{StaticResource TextColor}"></Setter>
+            <Setter Property="Background" Value="{DynamicResource TextColor}"></Setter>
         </Style>
 
         <Style TargetType="{x:Type ListBox}">
-            <Setter Property="BorderBrush" Value="{StaticResource TextColor}"></Setter>
+
+            <Setter Property="BorderBrush" Value="{DynamicResource TextColor}"></Setter>
         </Style>
 
         <DataTemplate x:Key="SpecialtyItemTemplate">
-            <TextBlock>
-                <Run FontWeight="Bold" Foreground="{StaticResource TextColor}" Text="{Binding Code}"></Run>
-                <Run Text="{Binding Caption}"></Run>
-                <LineBreak></LineBreak>
-                <Run FontStyle="Italic" Foreground="{StaticResource BackroundTextColor}" FontSize="10" Text="{Binding Qualification}"></Run>
-            </TextBlock>
+            <StackPanel>
+                <TextBlock>
+                    <Run FontWeight="Bold" Foreground="Red" Text="{Binding IsUpdate, Converter={StaticResource BConverter}}"></Run>
+                    <Run FontWeight="Bold" Foreground="{Binding IsUpdate, Converter={StaticResource BConverter}}" Text="{Binding Id}"></Run>                    
+                    <Run FontWeight="Bold" Foreground="{DynamicResource TextColor}" Text="{Binding Code}"></Run>
+                    <Run Text="{Binding Caption}"></Run>
+                    <LineBreak></LineBreak>
+                    <Run FontStyle="Italic" Foreground="{DynamicResource BackroundTextColor}" FontSize="14" Text="{Binding Qualification}"></Run>
+                </TextBlock>
+            </StackPanel>
         </DataTemplate>
 
         <DataTemplate x:Key="GroupItemTemplate">
             <StackPanel>
-                <TextBlock Foreground="{StaticResource TextColor}">
+                <TextBlock Foreground="{DynamicResource TextColor}">
                     <Run FontWeight="Bold" Text="{Binding Number}"></Run>
                     <Run Text="{Binding Course}"></Run>
                     <Run Text="курс"></Run>
                 </TextBlock>
-                <TextBlock FontSize="14" FontStyle="Italic" Foreground="{StaticResource BackroundTextColor}">
+                <TextBlock FontSize="14" FontStyle="Italic" Foreground="{DynamicResource BackroundTextColor}">
                     <Run Text="{Binding SpecialtyReference.Code}"></Run>
                     <Run Text="{Binding SpecialtyReference.Caption}"></Run>
                 </TextBlock>

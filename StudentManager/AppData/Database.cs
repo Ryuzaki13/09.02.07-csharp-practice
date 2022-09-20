@@ -8,7 +8,9 @@ using NpgsqlTypes;
 
 namespace StudentManager.AppData {
 	public class Database {
+
 		private static Configuration configuration;
+
 		public static NpgsqlConnection Connection { get; private set; }
 
 		public static void Connect(Configuration config) {

@@ -5,23 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 using NpgsqlTypes;
-using StudentManager.AppData;
 
-namespace StudentManager {
-	public class Group {
+namespace StudentManager.AppData
+{
+	public class Group
+	{
 		private Specialty specialtyReference;
 
-		public Group() {
+		public Group()
+		{
 			Course = 1;
 		}
 
-		public Group(string number, int course, int specialty) {
+		public Group(string number, int course, int specialty)
+		{
 			Number = number;
 			Course = course;
 			Specialty = specialty;
 		}
 
-		public Group(string number, int course, Specialty specialty) {
+		public Group(string number, int course, Specialty specialty)
+		{
 			Number = number;
 			Course = course;
 			SpecialtyReference = specialty;
@@ -30,18 +34,24 @@ namespace StudentManager {
 		public string Number { get; set; }
 		public int Course { get; set; }
 		public int Specialty { get; set; }
-		public Specialty SpecialtyReference {
+
+		public Specialty SpecialtyReference
+		{
 			get { return specialtyReference; }
-			set {
+			set
+			{
 				specialtyReference = value;
-				if (specialtyReference != null) {
+				if (specialtyReference != null)
+				{
 					Specialty = specialtyReference.Id;
 				}
 			}
 		}
 
-		public bool Validate() {
-			if (Number == null) {
+		public bool Validate()
+		{
+			if (Number == null)
+			{
 				return false;
 			}
 
@@ -50,7 +60,8 @@ namespace StudentManager {
 			return Number.Length > 0 && Course > 0 && Course < 6;
 		}
 
-		public bool Create() {
+		public bool Create()
+		{
 			if (!Validate())
 				return false;
 
@@ -63,7 +74,8 @@ namespace StudentManager {
 			return result == 1;
 		}
 
-		public static void GetList(ObservableCollection<Group> list, ObservableCollection<Specialty> specialties) {
+		public static void GetList(ObservableCollection<Group> list, ObservableCollection<Specialty> specialties)
+		{
 			if (list == null)
 				return;
 
@@ -74,12 +86,14 @@ namespace StudentManager {
 			if (result == null)
 				return;
 
-			if (result.HasRows) {
-				while (result.Read()) {
+			if (result.HasRows)
+			{
+				while (result.Read())
+				{
 
 					int id = result.GetInt32(2);
 
-					var specialty = specialties.Where(s => s.Id == id).FirstOrDefault();
+					var specialty = specialties.Where(s => s.Id == id).First();
 
 					list.Add(new Group(
 						result.GetString(0),
