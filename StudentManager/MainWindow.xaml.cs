@@ -10,7 +10,11 @@ namespace StudentManager
 		{
 			InitializeComponent();
 
+			WindowState = WindowState.Maximized;
+			WindowStyle = WindowStyle.None;
+
 			Database.Connect(new Configuration("setting.json"));
+			DataLoader.Fetch();
 			
 			AppFrame.Navigate(PageControl.SpecialtyPage);
 		}

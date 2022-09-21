@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Controls;
 
 namespace StudentManager.AppPages
@@ -7,26 +8,19 @@ namespace StudentManager.AppPages
 	public partial class GroupPage : Page
 	{
 		public AppData.Group NewGroup { get; set; }
-		public ObservableCollection<AppData.Group> Groups { get; set; }
-
-		private ObservableCollection<AppData.Specialty> specialties;
+	
 
 		public GroupPage()
 		{
 			InitializeComponent();
 
-			specialties = new ObservableCollection<AppData.Specialty>();
-			AppData.Specialty.GetList(specialties);
-
-			NewGroup = new AppData.Group();
-			Groups = new ObservableCollection<AppData.Group>();
-			LoadGroups();
+			SpecialtyList.SetBinding(ListBox.ItemsSourceProperty, new Binding()
+			{
+				Source = AppData.DataLoader.Specialties
+			}); 
+		
 		}
 
-		private void LoadGroups()
-		{
-			AppData.Group.GetList(Groups, specialties);
-		}
 
 		private void CreateGroupClick(object sender, RoutedEventArgs e)
 		{
@@ -37,8 +31,6 @@ namespace StudentManager.AppPages
 			}
 			if (!NewGroup.Create())
 				return;
-
-			LoadGroups();
 
 			NewGroup = new AppData.Group();
 			GroupPanel.GetBindingExpression(DataContextProperty)?.UpdateTarget();

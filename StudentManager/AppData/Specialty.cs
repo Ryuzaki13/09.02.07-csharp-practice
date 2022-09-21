@@ -75,6 +75,12 @@ namespace StudentManager.AppData
 			}
 		}
 
+
+
+
+
+
+
 		public bool Validate()
 		{
 			if (Code == null || Caption == null || Qualification == null)
@@ -93,12 +99,26 @@ namespace StudentManager.AppData
 		{
 			if (!Validate()) return false;
 
-			var command = Database.GetCommand("INSERT INTO specialty (code, caption, qualification) VALUES (@a, @b, @c)");
+			DataLoader.AddSpecialty(this);
+
+			return true;
+
+			//var command = Database.GetCommand("INSERT INTO specialty (code, caption, qualification) VALUES (@a, @b, @c)");
+			//command.Parameters.AddWithValue("@a", NpgsqlDbType.Varchar, Code.Trim());
+			//command.Parameters.AddWithValue("@b", NpgsqlDbType.Varchar, Caption.Trim());
+			//command.Parameters.AddWithValue("@c", NpgsqlDbType.Varchar, Qualification.Trim());
+			//var result = command.ExecuteNonQuery();
+			//return result == 1;
+		}
+
+		public bool Update()
+		{
+			var command = Database.GetCommand("UPDATE specialty SET code=@a, caption=@b, qualification=@c WHERE id=@id");
 			command.Parameters.AddWithValue("@a", NpgsqlDbType.Varchar, Code.Trim());
 			command.Parameters.AddWithValue("@b", NpgsqlDbType.Varchar, Caption.Trim());
 			command.Parameters.AddWithValue("@c", NpgsqlDbType.Varchar, Qualification.Trim());
+			command.Parameters.AddWithValue("@id", NpgsqlDbType.Integer, Id);
 			var result = command.ExecuteNonQuery();
-
 			return result == 1;
 		}
 
@@ -106,14 +126,12 @@ namespace StudentManager.AppData
 		{
 			if (list == null)
 				return;
-
 			list.Clear();
 
 			var command = Database.GetCommand("SELECT id, code, caption, qualification FROM specialty ORDER BY code, caption, qualification");
 			var result = command.ExecuteReader();
 			if (result == null)
 				return;
-
 			if (result.HasRows)
 			{
 				while (result.Read())
@@ -127,7 +145,6 @@ namespace StudentManager.AppData
 					list.Add(s);
 				}
 			}
-
 			result.Close();
 		}
 	}

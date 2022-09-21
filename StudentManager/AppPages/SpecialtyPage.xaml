@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:StudentManager.AppPages"
       mc:Ignorable="d" 
+      FontSize="32"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SpecialtyPage">
 
@@ -19,7 +20,6 @@
             <ListBox
                 Name="SpecialtyList"
                 SelectedItem="{Binding SelectedSpecialty}"
-                ItemsSource="{Binding Specialties}"
                 ItemTemplate="{StaticResource ResourceKey=SpecialtyItemTemplate}"></ListBox>
         </GroupBox>
 
@@ -28,11 +28,11 @@
                 <Label>ID</Label>                
                 <TextBox IsEnabled="False" Text="{Binding Id}"></TextBox>
                 <Label>Код</Label>
-                <TextBox Text="{Binding Code}"></TextBox>
+                <TextBox Text="{Binding Code, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Label>Наименование</Label>
-                <TextBox Text="{Binding Caption}"></TextBox>
+                <TextBox Text="{Binding Caption, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Label>Квалификация</Label>
-                <TextBox Text="{Binding Qualification}"></TextBox>
+                <TextBox Text="{Binding Qualification, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                 <Button Margin="0 10">Обновить</Button>
             </StackPanel>
         </GroupBox>

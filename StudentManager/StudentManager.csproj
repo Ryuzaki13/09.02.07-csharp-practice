@@ -105,6 +105,7 @@
     </ApplicationDefinition>
     <Compile Include="AppData\Configuration.cs" />
     <Compile Include="AppData\Database.cs" />
+    <Compile Include="AppData\DataLoader.cs" />
     <Compile Include="AppPages\AuthorizationPage.xaml.cs">
       <DependentUpon>AuthorizationPage.xaml</DependentUpon>
     </Compile>
@@ -151,7 +152,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AppPages\BrushColorConverter.cs" />
+    <Compile Include="AppPages\BoolConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

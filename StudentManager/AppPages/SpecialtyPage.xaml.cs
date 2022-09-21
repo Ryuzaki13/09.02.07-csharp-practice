@@ -2,13 +2,13 @@
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace StudentManager.AppPages
 {
 	public partial class SpecialtyPage : Page
 	{
 		public AppData.Specialty NewSpecialty { get; set; }
-		public ObservableCollection<AppData.Specialty> Specialties { get; set; }
 		public AppData.Specialty SelectedSpecialty { get; set; }
 
 		public SpecialtyPage()
@@ -16,16 +16,12 @@ namespace StudentManager.AppPages
 			InitializeComponent();
 
 			NewSpecialty = new AppData.Specialty();
-			Specialties = new ObservableCollection<AppData.Specialty>();
-
-			LoadSpecialties();
-
 			DataContext = this;
-		}
 
-		private void LoadSpecialties()
-		{
-			AppData.Specialty.GetList(Specialties);
+			SpecialtyList.SetBinding(ListBox.ItemsSourceProperty, new Binding()
+			{
+				Source = AppData.DataLoader.Specialties
+			});
 		}
 
 		private void CreateSpecialtyClick(object sender, RoutedEventArgs e)
@@ -40,8 +36,6 @@ namespace StudentManager.AppPages
 				if (!NewSpecialty.Create())
 					return;
 
-				LoadSpecialties();
-
 				NewSpecialty = new AppData.Specialty();
 				SpecialtyPanel.GetBindingExpression(DataContextProperty)?.UpdateTarget();
 			}
@@ -50,6 +44,5 @@ namespace StudentManager.AppPages
 				MessageBox.Show(error.Message);
 			}
 		}
-
 	}
 }
