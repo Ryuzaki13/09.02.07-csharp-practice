@@ -75,12 +75,6 @@ namespace StudentManager.AppData
 			}
 		}
 
-
-
-
-
-
-
 		public bool Validate()
 		{
 			if (Code == null || Caption == null || Qualification == null)

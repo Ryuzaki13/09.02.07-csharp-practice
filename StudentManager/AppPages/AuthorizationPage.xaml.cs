@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +15,20 @@ using System.Windows.Shapes;
 
 namespace StudentManager.AppPages
 {
-	/// <summary>
-	/// Логика взаимодействия для AuthorizationPage.xaml
-	/// </summary>
 	public partial class AuthorizationPage : Page
 	{
+		public AppData.Employee Employee { get; set; } = new AppData.Employee();
 		public AuthorizationPage()
 		{
 			InitializeComponent();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			if (!Employee.Login())
+			{
+				MainWindow.MessageShow("Неверный логин/пароль");
+			}
 		}
 	}
 }

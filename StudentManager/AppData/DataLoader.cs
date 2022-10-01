@@ -10,6 +10,8 @@ namespace StudentManager.AppData
 	{
 		public static ObservableCollection<Specialty> Specialties { get; set; }
 		public static ObservableCollection<Group> Groups { get; set; }
+		public static ObservableCollection<Employee> Employees { get; set; }
+		public static ObservableCollection<Role> Roles { get; set; }
 		
 		public static void Fetch()
 		{
@@ -21,12 +23,21 @@ namespace StudentManager.AppData
 			{
 				Groups = new ObservableCollection<Group>();
 			}
+			if (Employees == null)
+			{
+				Employees = new ObservableCollection<Employee>();
+			}
+			if (Roles == null)
+			{
+				Roles = new ObservableCollection<Role>();
+			}
 
+			Role.GetList(Roles);
 			Specialty.GetList(Specialties);
 			Group.GetList(Groups, Specialties);
 		}
-
-		public static void Pull()
+		 
+		public static void Push()
 		{
 			foreach (var item in Specialties)
 			{

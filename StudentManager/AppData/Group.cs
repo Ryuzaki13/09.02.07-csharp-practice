@@ -17,13 +17,6 @@ namespace StudentManager.AppData
 			Course = 1;
 		}
 
-		public Group(string number, int course, int specialty)
-		{
-			Number = number;
-			Course = course;
-			Specialty = specialty;
-		}
-
 		public Group(string number, int course, Specialty specialty)
 		{
 			Number = number;
@@ -33,7 +26,6 @@ namespace StudentManager.AppData
 
 		public string Number { get; set; }
 		public int Course { get; set; }
-		public int Specialty { get; set; }
 
 		public Specialty SpecialtyReference
 		{
@@ -41,10 +33,6 @@ namespace StudentManager.AppData
 			set
 			{
 				specialtyReference = value;
-				if (specialtyReference != null)
-				{
-					Specialty = specialtyReference.Id;
-				}
 			}
 		}
 
@@ -68,7 +56,7 @@ namespace StudentManager.AppData
 			var command = Database.GetCommand("INSERT INTO study_group (number, course, specialty) VALUES (@a, @b, @c)");
 			command.Parameters.AddWithValue("@a", NpgsqlDbType.Varchar, Number);
 			command.Parameters.AddWithValue("@b", NpgsqlDbType.Integer, Course);
-			command.Parameters.AddWithValue("@c", NpgsqlDbType.Integer, Specialty);
+			command.Parameters.AddWithValue("@c", NpgsqlDbType.Integer, SpecialtyReference.Id);
 			var result = command.ExecuteNonQuery();
 
 			return result == 1;

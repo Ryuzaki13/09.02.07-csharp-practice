@@ -17,18 +17,15 @@ namespace StudentManager.AppPages
 			SpecialtyList.SetBinding(ListBox.ItemsSourceProperty, new Binding()
 			{
 				Source = AppData.DataLoader.Specialties
-			}); 
-		
+			});		
 		}
 
 
 		private void CreateGroupClick(object sender, RoutedEventArgs e)
 		{
 			if (!NewGroup.Validate())
-			{
-				MessageBox.Show("Не все поля корректно заполненны");
 				return;
-			}
+			
 			if (!NewGroup.Create())
 				return;
 

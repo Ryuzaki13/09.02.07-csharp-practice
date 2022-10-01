@@ -30,7 +30,7 @@ namespace StudentManager.AppPages
 			{
 				if (!NewSpecialty.Validate())
 				{
-					MessageBox.Show("Не все поля корректно заполненны");
+					MainWindow.MessageShow("Не все поля корректно заполненны");
 					return;
 				}
 				if (!NewSpecialty.Create())
@@ -41,8 +41,13 @@ namespace StudentManager.AppPages
 			}
 			catch (Exception error)
 			{
-				MessageBox.Show(error.Message);
+				MainWindow.MessageShow(error.Message);
 			}
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			AppData.DataLoader.Push();
 		}
 	}
 }

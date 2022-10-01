@@ -8,12 +8,9 @@ namespace StudentManager
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (targetType == typeof(bool))
+			if ((bool)value)
 			{
-				if ((bool)value)
-				{
-					return "*";
-				}
+				return "*";
 			}
 			return "";
 		}

@@ -39,7 +39,7 @@ namespace StudentManager.AppData {
 						Pass = conf.Pass;
 						Base = conf.Base;
 					} else {
-						MessageBox.Show("Файл конфигурации имеет неверный формат", "Внимание!", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+						MainWindow.MessageShow("Файл конфигурации имеет неверный формат");
 						Default();
 						Save();
 					}
@@ -49,7 +49,7 @@ namespace StudentManager.AppData {
 				}
 			}
 			catch (Exception e) {
-				MessageBox.Show(e.Message, "Внимание!", MessageBoxButton.OK, MessageBoxImage.Error);
+				MainWindow.MessageShow(e.Message);
 				Default();
 				Save();
 			}
@@ -73,7 +73,7 @@ namespace StudentManager.AppData {
 				file.Close();
 			}
 			catch (Exception e) {
-				MessageBox.Show(e.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+				MainWindow.MessageShow(e.Message);
 			}
 		}
 

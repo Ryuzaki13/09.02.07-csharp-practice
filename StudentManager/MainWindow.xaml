@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:StudentManager"
         mc:Ignorable="d"
         Title="Управление студентами" Height="450" Width="800">
-    <Grid Name="AAA">
+    <Grid>
         <Frame Name="AppFrame" NavigationUIVisibility="Hidden"></Frame>
+
+        <Border CornerRadius="6" BorderThickness="2"
+                BorderBrush="#AA0000" Padding="20"
+                Name="Message" Height="Auto"
+                MaxWidth="500" Visibility="Hidden"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" Background="#AFFF0000">
+            <TextBlock FontSize="24" Name="MessageText"
+                       Foreground="White" FontWeight="Bold"
+                       TextAlignment="Center" TextWrapping="Wrap">HEsad zczxcxzc zx csd fdsd vsd gsd vsdf gsdasd sadsa dsad sadsa sad sa ds sad sadsa dsad sad sad sad sad sad llo</TextBlock>
+        </Border>
+
     </Grid>
 </Window>

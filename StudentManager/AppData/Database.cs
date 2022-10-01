@@ -7,14 +7,14 @@ using Npgsql;
 using NpgsqlTypes;
 
 namespace StudentManager.AppData {
-	public class Database {
 
-		private static Configuration configuration;
+	public class Database {
 
 		public static NpgsqlConnection Connection { get; private set; }
 
-		public static void Connect(Configuration config) {
-			Reconnect(config);
+		public static void Connect(string config) {
+			Connection = new NpgsqlConnection(config);
+			Connection.Open();
 		}
 
 		public static void Reconnect(Configuration config = null) {
@@ -32,8 +32,7 @@ namespace StudentManager.AppData {
 				}
 			}
 
-			Connection = new NpgsqlConnection(configuration.GetConnectionString());
-			Connection?.Open();
+			
 		}
 
 		public static NpgsqlCommand GetCommand(string sql) {
